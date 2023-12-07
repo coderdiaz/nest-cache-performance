@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { NewsController } from './news/news.controller';
+import { NewsModule } from './news/news.module';
 import config from './config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [config]}),
+    NewsModule,
   ],
-  controllers: [NewsController],
 })
 export class AppModule {}
